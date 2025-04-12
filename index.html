@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CSC Boys FC - Livescore</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #0f0f0f;
+      color: #fff;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 32px;
+      margin-bottom: 20px;
+      color: #00ffbb;
+    }
+
+    .tabs {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .tab {
+      padding: 10px 20px;
+      background: #222;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .tab.active {
+      background: #00ffbb;
+      color: #000;
+    }
+
+    .card {
+      background: #1a1a1a;
+      border-radius: 16px;
+      padding: 20px;
+      max-width: 800px;
+      margin: 0 auto;
+      box-shadow: 0 4px 12px rgba(0, 255, 187, 0.1);
+    }
+
+    .match-header {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .score-line {
+      font-size: 36px;
+      font-weight: bold;
+      margin: 5px 0;
+    }
+
+    .live-clock {
+      font-size: 16px;
+      color: #ff4c4c;
+      margin-bottom: 10px;
+    }
+
+    .scorers {
+      text-align: center;
+      font-size: 14px;
+      margin-top: 10px;
+    }
+
+    .scorers span {
+      background: #00ffbb;
+      color: #000;
+      padding: 2px 6px;
+      border-radius: 6px;
+      margin-left: 6px;
+      font-weight: bold;
+    }
+
+    .match-info {
+      text-align: center;
+      font-size: 13px;
+      color: #aaa;
+      margin-top: 10px;
+    }
+
+    table {
+      width: 100%;
+      margin-top: 20px;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      border-bottom: 1px solid #333;
+      padding: 12px 10px;
+      text-align: center;
+    }
+
+    th {
+      background: #222;
+      color: #00ffbb;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin-top: 10px;
+    }
+
+    ul li {
+      padding: 10px;
+      background: #222;
+      margin: 6px 0;
+      border-radius: 8px;
+    }
+
+    .card-section {
+      margin-top: 20px;
+    }
+
+    .team-cards {
+      display: flex;
+      justify-content: space-between;
+      font-size: 14px;
+    }
+
+    .team-cards div {
+      width: 45%;
+    }
+
+    .red {
+      color: #ff4c4c;
+    }
+
+    .yellow {
+      color: #ffcc00;
+    }
+
+    .team-cards ul {
+      padding-left: 15px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>CSC Boys FC - Livescore</h1>
+
+  <div class="tabs">
+    <div class="tab active" onclick="showTab('live')">Live Match</div>
+    <div class="tab" onclick="showTab('upcoming')">Upcoming</div>
+    <div class="tab" onclick="showTab('previous')">Previous</div>
+  </div>
+
+  <div id="live" class="card">
+    <div class="match-header">
+      <h2>CSC Class 23 FC vs Csc Boys FC</h2>
+      <div class="score-line">0 - 3</div>
+      <div class="live-clock" id="clock"> <h1> FT' </h1></div>
+    </div>
+
+    <div class="scorers">
+      <p>CSC Boys Fc : Gold  <span>44'</span>, Odunayo<span>75'</span> Blurex <span> 85' </span> </p>
+    </div>
+
+    <div class="match-info">
+      CSC-DERBY | Friendly Match <br>
+      Sport Complex | FRi, 28 Feb | WAT
+    </div>
+
+    <!-- Yellow/Red Cards Section -->
+    <div class="card-section">
+      <div class="team-cards">
+        <div>
+          <strong></strong>
+          <ul>
+            <li><span class="yellow"></span></li>
+            <li><span class="red"></span></li>
+          </ul>
+        </div>
+        <div>
+          <strong></strong>
+          <ul>
+            <li><span class="yellow"></span></li>
+            <li><span class="red"></span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <table>
+      <tr>
+        <th></th>
+        <th>CSC Class 23 FC </th>
+        <th>CSC Boys Fc</th>
+      </tr>
+      <tr><td>Shots</td><td>-</td><td>-</td></tr>
+      <tr><td>On Target</td><td>-</td><td>-</td></tr>
+      <tr><td>Possession</td><td>-</td><td>-</td></tr>
+      <tr><td>Passes</td><td>-</td><td>-</td></tr>
+      <tr><td>Accuracy</td><td>-</td><td>-</td></tr>
+      <tr><td>Fouls</td><td>-</td><td>-</td></tr>
+      <tr><td>Yellows</td><td>-</td><td>-</td></tr>
+      <tr><td>Reds</td><td>-</td><td>-</td></tr>
+      <tr><td>Offsides</td><td>0</td><td>0</td></tr>
+      <tr><td>Corners</td><td>-</td><td>-</td></tr>
+    </table>
+  </div>
+
+  <div id="upcoming" class="card hidden">
+    <h2>Upcoming Matches</h2>
+    <ul>
+      <li>CSC BOYS FC VS Criminology class 24 FC - MAY 10 </li>
+      
+    </ul>
+  </div>
+
+  <div id="previous" class="card hidden">
+    <h2>Previous Results</h2>
+    <ul>
+      <li>CSC Boys FC 5 - 2  CYS BOYS FC – Mar 5</li>
+      <li>CSC Boys FC 2 - 2 CSC EDU 24' FC – Mar 30</li>
+    </ul>
+  </div>
+
+<script>
+  let minute = 0;
+  let isRunning = true;
+  const clock = document.getElementById('clock');
+
+  function updateClock() {
+    if (clock.textContent.trim() === 'FT' || clock.textContent.trim() === 'HT') {
+      clearInterval(interval);
+      return;
+    }
+
+    if (isRunning) {
+      minute++;
+      clock.textContent = `Live: ${minute < 90 ? minute + "'" : "90+'"}`;
+    }
+  }
+
+  let interval = setInterval(updateClock, 60000); // Update every 1 min
+
+  function setHalftime() {
+    isRunning = false;
+    clock.textContent = 'HT';
+    clock.style.color = '#fff';
+    clearInterval(interval);
+  }
+
+  function setFulltime() {
+    isRunning = false;
+    clock.textContent = 'FT';
+    clock.style.color = '#fff';
+    clearInterval(interval);
+  }
+
+  function resumeMatch() {
+    isRunning = true;
+    clock.style.color = '#ff4c4c';
+    clock.textContent = `Live: ${minute < 90 ? minute + "'" : "90+'"}`;
+    clearInterval(interval); // restart interval
+    interval = setInterval(updateClock, 60000);
+  }
+
+  function showTab(tabName) {
+    const tabs = ['live', 'upcoming', 'previous'];
+    tabs.forEach(tab => {
+      document.getElementById(tab).classList.add('hidden');
+      document.querySelector(`.tab[onclick="showTab('${tab}')"]`).classList.remove('active');
+    });
+
+    document.getElementById(tabName).classList.remove('hidden');
+    document.querySelector(`.tab[onclick="showTab('${tabName}')"]`).classList.add('active');
+  }
+</script>
+
+</body>
+</html>
