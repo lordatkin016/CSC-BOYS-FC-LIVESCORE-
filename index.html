@@ -10,6 +10,7 @@
       background: #0f0f0f;
       color: #fff;
       padding: 20px;
+      margin: 0;
     }
 
     h1 {
@@ -147,6 +148,64 @@
     .team-cards ul {
       padding-left: 15px;
     }
+
+    /* Slim Footer Ad Styles */
+    #footer-ad-container {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background: #00ffbb;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 15px;
+      box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.2);
+      z-index: 9999;
+      font-size: 14px;
+    }
+
+    #footer-ad-container img {
+      height: 40px;
+      margin-right: 12px;
+      border-radius: 4px;
+    }
+
+    #footer-ad-container p {
+      margin: 0;
+      font-weight: 500;
+    }
+
+    #footer-ad-link {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: white;
+    }
+
+    /* Optional Close Button */
+    #close-footer-ad {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: transparent;
+      border: none;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 500px) {
+      #footer-ad-container p {
+        font-size: 12px;
+      }
+
+      #footer-ad-container img {
+        height: 30px;
+        margin-right: 8px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -256,61 +315,78 @@
     </table>
   </div>
 
-<script>
-  let minute = FT;
-  let isRunning = true;
-  const clock = document.getElementById('clock');
+  <!-- Slim Footer Ad -->
+  <footer>
+    <div id="footer-ad-container">
+      <a href="https://musicdistribution.umijam.com/share/MTAwMDAwNzkzMTg3" target="_blank" id="footer-ad-link">
+        <img src="example.png" alt="CSC Boys FC">
+        <p style="color: black">Stream Jodada on all streaming platforms</p> 
+      </a>
+      <button id="close-footer-ad">&times;</button>
+    </div>
+  </footer>
 
-  function updateClock() {
-    if (clock.textContent.trim() === 'FT' || clock.textContent.trim() === 'HT') {
+  <script>
+    let minute = FT;
+    let isRunning = true;
+    const clock = document.getElementById('clock');
+
+    function updateClock() {
+      if (clock.textContent.trim() === 'FT' || clock.textContent.trim() === 'HT') {
+        clearInterval(interval);
+        return;
+      }
+
+      if (isRunning) {
+        minute++;
+        clock.textContent = `Live: ${minute < 90 ? minute + "'" : "90+'"}`;
+      }
+    }
+
+    let interval = setInterval(updateClock, 60000);
+
+    function setHalftime() {
+      isRunning = false;
+      clock.textContent = 'HT';
+      clock.style.color = '#fff';
       clearInterval(interval);
-      return;
     }
 
-    if (isRunning) {
-      minute++;
+    function setFulltime() {
+      isRunning = false;
+      clock.textContent = 'FT';
+      clock.style.color = '#fff';
+      clearInterval(interval);
+    }
+
+    function resumeMatch() {
+      isRunning = true;
+      clock.style.color = '#ff4c4c';
       clock.textContent = `Live: ${minute < 90 ? minute + "'" : "90+'"}`;
+      clearInterval(interval);
+      interval = setInterval(updateClock, 60000);
     }
-  }
 
-  let interval = setInterval(updateClock, 60000);
+    function showTab(tabName) {
+      const tabs = ['live', 'upcoming', 'previous', 'teamStats'];
+      tabs.forEach(tab => {
+        document.getElementById(tab).classList.add('hidden');
+        document.querySelector(`.tab[onclick="showTab('${tab}')"]`).classList.remove('active');
+      });
 
-  function setHalftime() {
-    isRunning = false;
-    clock.textContent = 'HT';
-    clock.style.color = '#fff';
-    clearInterval(interval);
-  }
+      document.getElementById(tabName).classList.remove('hidden');
+      document.querySelector(`.tab[onclick="showTab('${tabName}')"]`).classList.add('active');
+    }
 
-  function setFulltime() {
-    isRunning = false;
-    clock.textContent = 'FT';
-    clock.style.color = '#fff';
-    clearInterval(interval);
-  }
+    // Close footer ad on button click
+    document.getElementById("close-footer-ad").onclick = function () {
+      document.getElementById("footer-ad-container").style.display = "none";
+    };
+  </script>
 
-  function resumeMatch() {
-    isRunning = true;
-    clock.style.color = '#ff4c4c';
-    clock.textContent = `Live: ${minute < 90 ? minute + "'" : "90+'"}`;
-    clearInterval(interval);
-    interval = setInterval(updateClock, 60000);
-  }
-
-  function showTab(tabName) {
-    const tabs = ['live', 'upcoming', 'previous', 'teamStats'];
-    tabs.forEach(tab => {
-      document.getElementById(tab).classList.add('hidden');
-      document.querySelector(`.tab[onclick="showTab('${tab}')"]`).classList.remove('active');
-    });
-
-    document.getElementById(tabName).classList.remove('hidden');
-    document.querySelector(`.tab[onclick="showTab('${tabName}')"]`).classList.add('active');
-  }
-</script>
-<p style="text-align: center; font-family: Arial, sans-serif; font-size: 14px; color: #666;">
-  &copy; 2025 CSC Boys FC Media Team. All rights reserved.
-</p>
+  <p style="text-align: center; font-family: Arial, sans-serif; font-size: 14px; color: #666;">
+    &copy; 2025 CSC Boys FC Media Team. All rights reserved.
+  </p>
 
 </body>
 </html>
