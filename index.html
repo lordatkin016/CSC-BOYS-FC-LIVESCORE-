@@ -149,7 +149,6 @@
       padding-left: 15px;
     }
 
-    /* Slim Footer Ad Styles */
     #footer-ad-container {
       position: fixed;
       bottom: 0;
@@ -183,7 +182,6 @@
       color: white;
     }
 
-    /* Optional Close Button */
     #close-footer-ad {
       position: absolute;
       right: 10px;
@@ -194,6 +192,27 @@
       color: white;
       font-size: 16px;
       cursor: pointer;
+    }
+
+    .fancy-button {
+      display: block;
+      margin: 30px auto 10px auto;
+      padding: 12px 28px;
+      background: linear-gradient(45deg, #00ffbb, #0088ff);
+      color: #000;
+      font-weight: bold;
+      border: none;
+      border-radius: 30px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+      box-shadow: 0 0 12px rgba(0, 255, 187, 0.5);
+    }
+
+    .fancy-button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 24px rgba(0, 255, 187, 0.8);
+      background: linear-gradient(45deg, #00ffaa, #00bfff);
     }
 
     @media (max-width: 500px) {
@@ -269,7 +288,10 @@
       <tr><td>Offsides</td><td>0</td><td>0</td></tr>
       <tr><td>Corners</td><td>-</td><td>-</td></tr>
     </table>
+<button class="fancy-button" onclick="alert('Come back later line up not yet available!')">VIEW LINEUP</button>
   </div>
+
+
 
   <div id="upcoming" class="card hidden">
     <h2>Upcoming Matches</h2>
@@ -288,7 +310,7 @@
   </div>
 
   <div id="teamStats" class="card hidden">
-    <h2 style="text-align:center; color:#00ffbb; font-weight:bold;">Head Coach: SAMVINSKEYS</h2>
+<h2 style="text-align:center; color:#00ffbb; font-weight:bold;">Head Coach: SAMVINSKEYS</h2>
     <table>
       <tr>
         <th>Name</th>
@@ -314,9 +336,7 @@
       <!-- Add more players here -->
     </table>
   </div>
-
-  <!-- Slim Footer Ad -->
-  <footer>
+<footer>
     <div id="footer-ad-container">
       <a href="https://musicdistribution.umijam.com/share/MTAwMDAwNzkzMTg3" target="_blank" id="footer-ad-link">
         <img src="example.png" alt="CSC Boys FC">
@@ -325,8 +345,7 @@
       <button id="close-footer-ad">&times;</button>
     </div>
   </footer>
-
-  <script>
+<script>
     let minute = FT;
     let isRunning = true;
     const clock = document.getElementById('clock');
