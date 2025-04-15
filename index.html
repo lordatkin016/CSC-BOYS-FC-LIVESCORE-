@@ -149,50 +149,47 @@
       padding-left: 15px;
     }
 
-    #footer-ad-container {
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-      background: #00ffbb;
-      color: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 8px 15px;
-      box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.2);
-      z-index: 9999;
-      font-size: 14px;
-    }
-
     #footer-ad-container img {
-      height: 40px;
-      margin-right: 12px;
-      border-radius: 4px;
-    }
+  height: 40px;
+  margin-right: 12px;
+  border-radius: 4px;
+}
 
-    #footer-ad-container p {
-      margin: 0;
-      font-weight: 500;
-    }
+#footer-ad-container p {
+  margin: 0;
+  font-weight: 500;
+}
 
-    #footer-ad-link {
-      display: flex;
-      align-items: center;
-      text-decoration: none;
-      color: white;
-    }
+#footer-ad-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+}
 
-    #close-footer-ad {
-      position: absolute;
-      right: 10px;
-      top: 50%;
-      transform: translateY(-50%);
-      background: transparent;
-      border: none;
-      color: white;
-      font-size: 16px;
-      cursor: pointer;
-    }
+#close-footer-ad {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  color: #00ffbb;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+
+    @media (max-width: 500px) {
+      #footer-ad-container p {
+        font-size: 12px;
+      }
+
+      #footer-ad-container img {
+        height: 30px;
+        margin-right: 8px;
+      }
+    
 
     .fancy-button {
       display: block;
@@ -334,13 +331,15 @@
     </table>
   </div>
 <footer>
-    <div id="footer-ad-container">
-      <a href="https://wa.me/2347032304052" target="_blank" id="footer-ad-link">
-        <img src="N200.jpg" alt="CSC Boys FC">
-        <b style="color: black">For Just #200/day get your business promoted here on this page. click now to get started. </b> 
+        <div id="footer-ad-container">
+      <a href="https://api.whatsapp.com/send/?phone=2348149136917&text&type=phone_number&app_absent=0&wame_ctl=1" target="_blank" id="footer-ad-link">
+        <img src="everything.jpg" alt="CSC Boys FC">
+        <b style="color: black">Shop with everything by mide for every of your clothing needs at cheap rate. </b> 
       </a>
       <button id="close-footer-ad">&times;</button>
     </div>
+    
+    
   </footer>
 <script>
     let minute = FT;
