@@ -149,7 +149,25 @@
       padding-left: 15px;
     }
 
-    #footer-ad-container img {
+#footer-ad-container {
+  position: fixed;
+  bottom: 0;
+  left: 0; /* Ensure it's positioned to the left side of the screen */
+  width: 100%; /* Full width */
+  background: #00ffbb;
+  color: #fff;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 15px;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.2);
+  z-index: 9999;
+  font-size: 14px;
+  height: 70px; /* Adjust the height based on your preference */
+}
+
+#footer-ad-container img {
   height: 40px;
   margin-right: 12px;
   border-radius: 4px;
@@ -189,7 +207,7 @@
         height: 30px;
         margin-right: 8px;
       }
-    
+    }
 
     .fancy-button {
       display: block;
