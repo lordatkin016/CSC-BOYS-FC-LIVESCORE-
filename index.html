@@ -240,6 +240,90 @@
         margin-right: 8px;
       }
     }
+    .ad-popup {
+      background: white;
+      border-radius: 20px;
+      width: 90%;
+      max-width: 500px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      animation: slideIn 0.5s ease-out;
+      position: relative;
+      text-align: center;
+    }
+
+    /* Interstitial Ad Styles */
+    .ad-overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+
+    .ad-popup {
+      background: white;
+      border-radius: 20px;
+      width: 90%;
+      max-width: 500px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      animation: slideIn 0.5s ease-out;
+      position: relative;
+      text-align: center;
+    }
+
+    .ad-popup a {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+
+    .ad-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .ad-text {
+      padding: 20px;
+    }
+
+    .ad-text h2 {
+      margin: 0;
+      font-size: 1.5rem;
+      color: #222;
+    }
+
+    .ad-text p {
+      margin-top: 10px;
+      color: #555;
+    }
+
+    .ad-close {
+      display: block;
+      margin: 10px auto 20px;
+      background: #ff3333;
+      color: white;
+      border: none;
+      padding: 10px 25px;
+      border-radius: 50px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .ad-close:hover {
+      background: #cc0000;
+    }
+
+    @keyframes slideIn {
+      from { transform: scale(0.7); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
   </style>
 </head>
 <body>
@@ -350,18 +434,31 @@
   </div>
 <footer>
             
- <div id="footer-ad-container">
-      <a href="https://musicdistribution.umijam.com/share/MTAwMDAwNzkzMTg3" target="_blank" id="footer-ad-link">
-        <img src="example.png" alt="CSC Boys FC">
-        <p style="color: white">Stream Jodada on all streaming platforms</p> 
+    <div id="footer-ad-container">
+      <a href="https://api.whatsapp.com/send/?phone=2348149136917&text&type=phone_number&app_absent=0&wame_ctl=1" target="_blank" id="footer-ad-link">
+        <img src="everything.jpg" alt="CSC Boys FC">
+        <p style="color: white"> <b> Shop with everything by mide for every of your clothing needs at cheap rate. </p> </b>
       </a>
       <button id="close-footer-ad">&times;</button>
     </div>
-    
+  <!-- Interstitial Ad HTML -->
+  <div class="ad-overlay" id="interstitialAd" style="display: none;">
+    <div class="ad-popup">
+      <a href="https://youradlink.com" target="_blank">
+        <img class="ad-image" src="everything.jpg" alt="Ad">
+        <div class="ad-text">
+          <h2>Special Offer Just for You!</h2>
+          <p>Get every of your clothing needs at cheap rate today! </p>
+        </div>
+      </a>
+      <button class="ad-close" onclick="closeAd()">Close</button>
+    </div>
+  </div>
+
     
   </footer>
 <script>
-    let minute = FT;
+    
     let isRunning = true;
     const clock = document.getElementById('clock');
 
@@ -416,6 +513,16 @@
     document.getElementById("close-footer-ad").onclick = function () {
       document.getElementById("footer-ad-container").style.display = "none";
     };
+
+window.onload = function () {
+      setTimeout(() => {
+        document.getElementById("interstitialAd").style.display = "flex";
+      }, 3000); // Show ad after 3 seconds
+    }
+
+    function closeAd() {
+      document.getElementById("interstitialAd").style.display = "none";
+    }
   </script>
 
   <p style="text-align: center; font-family: Arial, sans-serif; font-size: 14px; color: #666;">
